@@ -1,0 +1,39 @@
+{
+  "scripts": {
+    "start:dev": "nodemon ./src/server.ts",
+    "start:prod": "npm run build && node dist/server.js",
+    "start:multi": "NODE_OPTIONS='-r tsconfig-paths/register' node cluster.js",
+    "build": "tsc",
+    "test": "mocha --require ts-node/register 'tests/**/*.ts'",
+    "prestart:dev": "npm install",
+    "prestart:prod": "npm install",
+    "prestart:multi": "npm install"
+  },
+  "dependencies": {
+    "axios": "^1.6.2",
+    "body-parser": "^1.19.0",
+    "concurrently": "^8.2.2",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "finalhandler": "^1.2.0",
+    "redis": "^4.6.12",
+    "request": "^2.88.2",
+    "tsconfig-paths": "^4.2.0",
+    "unpipe": "^1.0.0",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "@types/body-parser": "^1.19.5",
+    "@types/chai": "^4.3.11",
+    "@types/express": "^4.17.21",
+    "@types/mocha": "^10.0.6",
+    "@types/supertest": "^6.0.1",
+    "@types/uuid": "^9.0.7",
+    "chai": "^4.3.10",
+    "mocha": "^9.0.0",
+    "nodemon": "^2.0.7",
+    "supertest": "^6.3.3",
+    "ts-node": "^10.4.0",
+    "typescript": "^4.5.4"
+  }
+}
