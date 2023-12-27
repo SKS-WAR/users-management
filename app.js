@@ -93,7 +93,7 @@ if(cluster.isMaster){
     
     cluster.on('exit', (worker,code,signal) => {
         console.log(`Worker ${worker.process.pid} died. Forking a new one...`);
-        const newWorker = cluster.fork();
+        // const newWorker = cluster.fork();
         // workers.push(newWorker);
     });
     let nextWorker = 0;
@@ -118,7 +118,7 @@ if(cluster.isMaster){
     process.on('message', (msg) => {
         if (msg && msg.type === 'handle_request') {
             // console.log("msg",msg)
-            // console.log(servers[msg.serverNumber], msg.serverNumber)
+            console.log(servers[msg.serverNumber], msg.serverNumber)
             // createAppServer(servers[msg.serverNumber], msg.serverNumber);
             // console.log(servers[msg.serverNumber])
             app.listen(3000+parseInt(msg.serverNumber), (err) => {

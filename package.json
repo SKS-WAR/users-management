@@ -2,7 +2,7 @@
   "scripts": {
     "start:dev": "nodemon ./src/server.ts",
     "start:prod": "npm run build && node dist/server.js",
-    "start:multi": "NODE_OPTIONS='-r tsconfig-paths/register' node cluster.js",
+    "start:multi": "concurrently \"node app.js\" \"node loadbalancer.js\"",
     "build": "tsc",
     "test": "mocha --require ts-node/register 'tests/**/*.ts'",
     "prestart:dev": "npm install",
